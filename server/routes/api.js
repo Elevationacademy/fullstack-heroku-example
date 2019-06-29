@@ -4,7 +4,6 @@ const ToDo = require('../models/TodoModel')
 
 router.get('/todos', function (req, res) {
     ToDo.find({}, function (err, todos) {
-        console.log(todos)
         res.send(todos)
     })
 })
@@ -17,7 +16,6 @@ router.post('/todo', function (req, res) {
 
     newTodo.save(function (err, result) {
         ToDo.find({}, function (err, todos) {
-            console.log(todos)
             res.send(todos)
         })
     })
@@ -29,7 +27,6 @@ router.put('/todo/:id', function (req, res) {
     ToDo.findByIdAndUpdate(id, {complete: true}, function(err, response){
 
         ToDo.find({}, function (err, todos) {
-            console.log(todos)
             res.send(todos)
         })
     })

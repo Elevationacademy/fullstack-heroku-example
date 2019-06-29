@@ -8,7 +8,7 @@ const bodyParser = require('body-parser')
 const api = require('./server/routes/api')
 
 // Connecting to Mongo Database
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/todos', { useNewUrlParser: true })
+mongoose.connect('mongodb://localhost/todos', { useNewUrlParser: true })
 
 // Setting up express, serving client files, configuring bodyParser
 const app = express()
@@ -21,5 +21,5 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use('/', api)
 
 // Running the server
-const port = process.env.PORT || 3000
+const port = 3000
 app.listen(port, function () { console.log('Running on ' + port) })
